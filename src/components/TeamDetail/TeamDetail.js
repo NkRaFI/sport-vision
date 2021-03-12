@@ -11,7 +11,7 @@ import logo from '../../images/logo.png';
 import {  faFacebook,faTwitter,faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const TeamDetail = () => {
-    const [bannerImg, setBannerImg] = useContext(BannerImgContext);
+    const setBannerImg = useContext(BannerImgContext);
     const {teamId} = useParams();
     const [team, setTeam] = useState([]);
     useEffect(()=>{
@@ -20,7 +20,7 @@ const TeamDetail = () => {
         .then(res => res.json())
         .then(data => setTeam(data.teams[0]))
     }, [teamId]);
-    const {strTeam,intFormedYear,strCountry,strGender,strDescriptionEN,strStadiumDescription,strTwitter,strFacebook,strYoutube} = team;
+    const {strTeamBadge,strTeam,intFormedYear,strCountry,strGender,strDescriptionEN,strStadiumDescription,strTwitter,strFacebook,strYoutube} = team;
     let genderImg;
     if(strGender === "Male"){
         genderImg = <img className="img-fluid" src={male} alt=''/>;
@@ -43,7 +43,7 @@ const TeamDetail = () => {
                     <div className="row">
                         <div className="col-12 col-lg-7 d-flex align-items-center">
                             <div>
-                                <h2>{strTeam} <img className="team-logo" src={bannerImg} alt=""/></h2>
+                                <h2>{strTeam} <img className="team-logo" src={strTeamBadge} alt=""/></h2>
                                 <p><FontAwesomeIcon className="icons" icon={faMapMarker} /> Founded: {intFormedYear}</p>
                                 <p><FontAwesomeIcon className="icons" icon={faFlag} /> Country: {strCountry}</p>
                                 <p><FontAwesomeIcon className="icons" icon={faFutbol} /> Sport Type: Football</p>

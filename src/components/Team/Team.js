@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { BannerImgContext } from '../../App';
 
 const Team = (props) => {
-    const [bannerImg, setBannerImg] = useContext(BannerImgContext);
+    const setBannerImg = useContext(BannerImgContext);
     const {idTeam,strTeam,strTeamBadge} = props.team;
 
     return (

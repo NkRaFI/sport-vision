@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="main-body">
       <Router>
-        <BannerImgContext.Provider value={[bannerImg, setBannerImg]}>
+        <BannerImgContext.Provider value={setBannerImg}>
 
           <Jumbotron className="banner">
             <div className="banner-logo">
